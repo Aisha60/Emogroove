@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Playlist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/playlist.css" />
+</head>
+<body>
+    <div class="playlist">
+        <div class="header">
+            <a href="home" class= "back-arrow"><img src="../static/assets/vectors/vector_20_x2.svg" alt="Back" /></a>
+            <div class="image_3">
+                <img src="../static/assets/images/image_3.png" alt="Image 3" />
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="download-1"></div>
+            <div class="center-text">
+                <p><em>Oh! hey there.. </em></p>
+                <p><em> Here is a playlist for you to cheer you up for your curent mood</em></p>
+            </div>
+            <div class="search-bar" id="search">
+                <input type="text" placeholder="Search a song in playlist" id="searchInput"/>
+                <img src="../static/assets/vectors/search.svg" alt="Search Icon" id="searchIcon"/>
+            </div>
+            <div class="songs-list">
+                <ul id="songList">
+                    <!-- Dynamically populated list items will be added here -->
+                </ul>
+            </div>
+            <div id="noResultsMessage" class="center-text" style="display: none;">
+                <p>No songs match your query.</p>
+            </div>
+            <div class="feedback">
+                <p>Give <a href="feedback">feedback</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let allSongs = [];
+
+            fetch('../static/recommended_songs.txt')
+                .then(response => response.text())
+                .then(data => {
+                    allSongs = data.trim().split('\n');
+                    displaySongs(allSongs);
+                })
+                .catch(error => console.error('Error fetching recommended songs:', error));
+
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const filteredSongs = allSongs.filter(song => song.toLowerCase().startsWith(searchTerm));
+                displaySongs(filteredSongs);
+            });
+
+            function displaySongs(songs) {
+                const songContainer = document.getElementById('songList');
+                const noResultsMessage = document.getElementById('noResultsMessage');
+                songContainer.innerHTML = ''; // Clear previous contents
+
+                if (songs.length === 0) {
+                    noResultsMessage.style.display = 'block';
+                } else {
+                    noResultsMessage.style.display = 'none';
+                    songs.forEach(song => {
+                        const li = document.createElement('li');
+                        const img = document.createElement('img');
+                        img.src = '../static/assets/vectors/vector_19_x2.svg';
+                        img.alt = 'Music Icon';
+                        li.appendChild(img);
+                        li.appendChild(document.createTextNode(' ' + song));
+                        songContainer.appendChild(li);
+                    });
+                }
+
+                // Adjust the container height based on content
+                document.querySelector('.content').style.height = songs.length ? 'auto' : '100vh';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion-Based Playlist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Emotion-Based Music Recommender</h1>
+        <button id="captureEmotionButton">Capture Emotion</button>
+    </div>
+    <script>
+        document.getElementById('captureEmotionButton').addEventListener('click', function() {
+            fetch('/detect_emotion', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'Emotion captured') {
+                        window.location.href = '/recommend';
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JejuHallasan:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/sign_up.css" />
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>WELCOME TO EMOGROOVE</h1>
+        </div>
+        <div class="header-right">
+            <div class="image-1"></div>
+            <div class="image-2"></div>
+            <div class="image-3"></div>
+        </div>
+    </div>
+    <div class="body-content">
+        <h2>Let Your Emotions Lead the Music</h2>
+        <h3>Sign Up</h3>
+        <form class="sign-up-form" onsubmit="return validateForm()" action = '/register' method = 'POST'>
+            <input type="text" class="input-field" id="username" placeholder="Username" name= "username" required />
+            <input type="email" class="input-field" id="Email" placeholder="Email" name= "email" required />
+            <input type="password" class="input-field" id="password" placeholder="Password" name="password" required />
+            <input type="password" class="input-field" id="confirmpassword" placeholder="Confirm Password" required />
+            <button type="submit" class="sign-up-button">Sign Up</button>
+        </form>
+        {%if error %}
+            <p class = "error"> {{error}} </p>
+        {% endif %}
+    </div>
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("Email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmpassword").value;
+
+            if (username.trim() === "" || password.trim() === "" || email.trim() === "" || confirmPassword.trim() === "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            return true;
+        }
+    </script> 
+
+<script>
+    document.querySelector(".sign-up-form").addEventListener("submit", function(event) {
+        if (!validateForm()) {
+            // Redirect to home.html after validation
+            //window.location.href = "login";
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+</script> 
+
+
+</body>
+</html>

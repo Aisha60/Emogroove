@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Playlist</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Playlist for {{ emotion }} Emotion</h1>
+        <ul>
+            {% for song in songs %}
+            <li>
+                🎵 Song: {{ song.name }} | Album: {{ song.album }} | Artist: {{ song.artist }} | Mood: {{ song.mood }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

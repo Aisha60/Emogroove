@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JejuHallasan:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/home.css" />
+    <link href="https://www.flaticon.com/free-icon/html-coding_13706">
+  </head>
+  <body>
+    <div class="home">
+      <header class="header">
+        <div class="logo-container">
+          <div class="emogroove">EMOGROOVE</div>
+          <div class="image-3"></div>
+        </div>
+        <nav class="nav">
+          <a href="home" class="nav-item">Home</a>
+          <a href="webcam" class="nav-item">Web Cam</a>
+          <a href="feedback" class="nav-item">Feedback</a>
+          <a href="logout" class="nav-item">Logout</a>
+        </nav>
+      </header>
+      <main class="main-content">
+        <h2 class="main-title">FACIAL EMOTION DETECTOR &amp; MUSIC Recommender</h2>
+        <p class="main-description">
+          Discover personalized playlists tailored to your mood with our innovative emotion detection technology.<br>
+          Let the power of music enhance every moment of your day.
+        </p>
+        <button type="button" class="get-started-button" id="getStartedButton" method = 'GET'>Get Started</button>
+      </main>
+      <footer class="frame-3">
+        <object id="container-2" data="../static/assets/vectors/container_x2.svg" type="image/svg+xml"></object>
+
+      </footer>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("getStartedButton").addEventListener("click", function() {
+            window.location.href = "webcam";
+        });
+    });
+  </script>
+
+  
+
+  </body>
+</html>

@@ -1,0 +1,120 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #9D67BF; /* Background color as specified */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures content is centered vertically */
+}
+
+.playlist {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  color: #ffffff; /* Text color */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+  margin-bottom: 20px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.content {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.header .back-arrow img {
+  width: 38px;
+  height: 38px;
+}
+
+.header .image_3 img {
+  width: 100px;
+  height:100px;
+}
+.download-1 {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: 1px solid #8247A5;
+  background: url('../static/assets/images/download_1.jpeg') 50% / cover no-repeat;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 20px; /
+}
+
+.center-text {
+  margin: 10px 0;
+
+}
+
+.center-text p {
+  font-family: 'Crimson Pro', serif, 'italic';
+  font-style: italic;
+  color: #ffffff; /* Text color */
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.search-bar {
+  position: relative;
+  margin: 40px 0;
+  display: flex;
+  justify-content: flex-end; /* Align search bar to the right */
+}
+
+.search-bar input {
+  width: 300px; /* Adjust width as needed */
+  padding: 10px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+}
+
+.search-bar img {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+}
+
+.songs-list {
+  text-align: left;
+}
+
+.songs-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.songs-list li {
+  display: flex;
+  align-items: center;
+  margin: 10px 1px;
+  font-family: 'Hubballi', sans-serif;
+  font-size: 20px;
+}
+
+.songs-list li img {
+  margin-right: 10px;
+  width: 25px;
+  height: 24px;
+}
+
+.feedback p {
+  color: black;
+}
+
+.feedback p a {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}

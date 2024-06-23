@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JejuHallasan:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/login.css" />
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>WELCOME TO EMOGROOVE</h1>
+        </div>
+        <div class="header-right">
+            <div class="image-1"></div>
+            <div class="image-2"></div>
+            <div class="image-3"></div>
+        </div>
+    </div>
+    <div class="body-content">
+        <h2>Let Your Emotions Lead the Music</h2>
+        <h3>Login</h3>
+        <form class="login-form" onsubmit="return validateForm()" action = "/login" method = "POST">
+            <input type="text" class="input-field" placeholder="Username" id="username" name="username" required />
+            <input type="password" class="input-field" placeholder="Password" id="password" name="password" required />
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        {%if error %}
+            <p class = "error"> {{error}} </p>
+        {% endif %}
+        <p class="signup">Don't have an account? <a href="/signup">Sign Up</a></p>
+
+    </div>
+
+    <script>
+        function validateForm(event) {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            //check for empty fields
+            if (username.trim() === " " || password.trim() === " ") {
+                alert("Please enter both username and password.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+
+            }
+            // Ensure redirection happens only after form submission
+            return true;
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web cam</title>
+  <link rel="stylesheet" href="../static/web_cam.css" />
+</head>
+<body>
+  <div class="web-cam-header">
+    <div class="icbaseline-arrow-back">
+      <a href="home"><img class="vector" src="../static/assets/vectors/vector_11_x2.svg" /></a>
+    </div>
+    <div class="image-3">
+      <!-- Your image 3 content here -->
+    </div>
+  </div>
+  <div class="web-cam-content">
+    <div class="rectangle-6">
+      <!-- Image will be added dynamically here -->
+    </div>
+    <button class="next-button">Capture</button>
+    <p class="loading-message" id="loadingMessage" style="display:none;">Please wait while the webcam is loading and capturing...</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const rectangle6 = document.querySelector('.rectangle-6');
+
+      // Create an image element
+      const img = document.createElement('img');
+      img.classList.add('group'); // Add necessary classes
+      img.src = '../static/assets/vectors/group_x2.svg'; // Set image source
+
+      // Append the image to rectangle-6
+      rectangle6.appendChild(img);
+    });
+      // Add click event listener to the button
+      document.addEventListener("DOMContentLoaded" , function() {
+        const loadingMessage = document.getElementById('loadingMessage');
+        document.querySelector('.next-button').addEventListener('click', function() {
+        window.location.href = "captureImage";
+        loadingMessage.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>

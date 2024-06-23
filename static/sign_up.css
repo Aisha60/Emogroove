@@ -1,0 +1,121 @@
+body {
+  font-family: 'Crimson Pro', sans-serif;
+  margin: 0;
+  background: #9D67BF;
+  color: #FFFFFF;
+}
+
+.header {
+  background-color: #DAD0E3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  height: 100px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right .image-1,
+.header-right .image-2,
+.header-right .image-3 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+}
+
+.header-right .image-1 {
+  background-image: url('../static/assets/images/image_1.png');
+}
+
+.header-right .image-2 {
+  background-image: url('../static/assets/images/image_2.png');
+}
+
+.header-right .image-3 {
+  background-image: url('../static/assets/images/image_3.png');
+}
+
+.header-left h1 {
+  font-family: 'JejuHallasan', cursive;
+  font-size: 30px;
+  color: #9D67BF;
+}
+
+.body-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.body-content h2 {
+  font-family: 'Hubballi', cursive;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.body-content h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: rgba(47, 4, 58, 0.795);
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 32px;
+  background: #D9D9D9;
+  opacity: .5;
+  font-size: 20px;
+  color: #000000;
+}
+
+.sign-up-button {
+  background: #9D67BF;
+  border: none;
+  border-radius: 32px;
+  width: 150px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #a87ad4;;
+  color: white;
+  opacity: .9;
+  cursor: pointer;
+}
+.sign-up-button:hover{
+  color: white; /* Text color on hover */
+  background-color:  #aa8bbd; /* Background color on hover */
+  box-shadow: 0 0 10px 0 rgba(143, 138, 138, 0.3); /* Glow effect on hover */
+  
+}
+.signup {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.signup a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+.error {
+  color: red;
+  font-weight: bold;
+}

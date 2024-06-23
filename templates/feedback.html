@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback</title>
+  <link rel="stylesheet" href="../static/feedback.css">
+</head>
+<body>
+  <div class="feedback">
+    <header class="header">
+
+      <div class="logo-container">
+        <a href="home.html"><div class="emogroove">EMOGROOVE</div></a>
+        <a href="home.html"><div class="image-3"></div></a>
+      </div>
+      <nav class="nav">
+        <a href="home" class="nav-item">Home</a>
+          <a href="webcam" class="nav-item">Web Cam</a>
+          <a href="feedback" class="nav-item">Feedback</a>
+      </nav>
+    </header>
+
+    <div class="feedback-form">
+      <h2>Feedback Form</h2>
+      <div class="input-group">
+        <input type="text" class="first-name" id="firstname" placeholder="First Name" name = 'fname' required>
+      </div>
+      <div class="input-group">
+        <input type="text" class="last-name" id="lastname" placeholder="Last Name" name = 'lname' required>
+      </div>
+      <div class="input-group">
+        <input type="email" class="email" id="email" placeholder="Email" name= 'email' required>
+      </div>
+      <div class="input-group">
+        <textarea class="your-feedback" id="feedback" placeholder="Your Feedback" name = 'message' required></textarea>
+      </div>
+      <div class="input-group">
+        <button type="button" class="submit" id="submitButton">Submit</button>
+      </div>
+    </div>
+
+    <footer class="frame-3">
+      <img class="container-2" src="../static/assets/vectors/container_x2.svg" />
+    </footer>
+  </div>
+  <script>
+    document.getElementById("submitButton").addEventListener("click", function() {
+      if (validateForm()) {
+        alert("Your feedback is submitted!");
+        document.getElementById("firstname").value = "";
+        document.getElementById("lastname").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("feedback").value = "";
+
+        
+      }
+    });
+
+    function validateForm() {
+      var firstname = document.getElementById("firstname").value;
+      var lastname = document.getElementById("lastname").value;
+      var email = document.getElementById("email").value;
+      var feedback = document.getElementById("feedback").value;
+
+      if (firstname.trim() === "" || lastname.trim() === "" || email.trim() === "" || feedback.trim() === "") {
+        alert("Please fill in all fields.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>
